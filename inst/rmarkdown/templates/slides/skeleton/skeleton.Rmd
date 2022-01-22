@@ -1,0 +1,15 @@
+---
+title: ""
+author: ""
+date: ""
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+<!-- Instructions on use are found in https://github.com/yihui/xaringan -->
