@@ -14,7 +14,7 @@
 #' create_report()
 #' create_slides()
 #' }
-create_doc <- function(type = c("report", "slides")) {
+create_doc <- function(type = c("report_docx", "report_html", "slides_pptx", "slides_html")) {
     if (!is_rproj_folder())
         rlang::abort("The folder does not contain an `.Rproj` file. Please use this function while in the project created from `setup_project().`")
 
@@ -42,7 +42,7 @@ create_doc <- function(type = c("report", "slides")) {
 #' @describeIn create_doc Creates a report R Markdown document in the `doc/` folder.
 #' @export
 create_report <- function() {
-    create_doc(type = "report")
+    create_doc(type = "report_html")
     return(invisible())
 }
 
@@ -54,7 +54,7 @@ create_manuscript <- create_report
 #' @describeIn create_doc Creates a R Markdown document for making slides in the `doc/` folder.
 #' @export
 create_slides <- function() {
-    create_doc(type = "slides")
+    create_doc(type = "slides_html")
 }
 
 #' List project templates within \pkg{mnproject}.
@@ -66,4 +66,4 @@ create_slides <- function() {
 #' @examples
 #' template_list
 #'
-template_list <- c("report", "slides")
+template_list <- c("report_html", "slides_html")
