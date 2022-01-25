@@ -23,7 +23,7 @@ create_doc <- function(type = c("report", "slides")) {
 
     type <- match.arg(type)
     file_name <- normalizePath(file.path("doc", paste0(type, ".Rmd")), mustWork = FALSE)
-    template_file <- fs::path_package("prodigenr", "rmarkdown", "templates", type)
+    template_file <- fs::path_package("mnproject", "rmarkdown", "templates", type)
     if (file.exists(file_name)) {
         rlang::abort(paste0("The file '", type, ".Rmd' already exists in the doc folder."))
     } else {
@@ -57,7 +57,7 @@ create_slides <- function() {
     create_doc(type = "slides")
 }
 
-#' List project templates within \pkg{prodigenr}.
+#' List project templates within \pkg{mnproject}.
 #'
 #' Get a list of available templates in a package.
 #'
