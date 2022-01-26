@@ -8,6 +8,10 @@
 #' @return Project setup with folders and files necessary for a standard research project.
 #' @export
 #'
+#' @importFrom rlang warn
+#' @importFrom fs dir_create
+#' @importFrom withr with_dir
+#'
 #' @examples
 #' \dontrun{
 #' # Use a temporary location
@@ -37,6 +41,7 @@ setup_project <-
                 create_directories()
                 include_readmes(proj_name)
                 use_template("TODO.md")
+                add_office_templates(proj_name)
             })
     }
 
@@ -60,10 +65,20 @@ include_readmes <- function(proj_name) {
     use_template("doc-README.md", "doc/README.md")
     use_template("data-README.md", "data/README.md")
     use_template("data-raw-README.md", "data-raw/README.md")
+    use_template("info-README.md", "info/README.md")
     use_template("R-README.md", "R/README.md")
     use_template("common-README.md", "common/README.md")
-    use_template("word-template.docx", "common/word-template.docx")
-    use_template("powerpoint-template.pptx", "common/powerpoint-template.pptx")
+}
+
+add_office_templates <- function(proj_name) {
+    fs::file_copy(
+        path = fs::path_package("mnproject", "office", "word-template.docx"),
+        new_path = "common/word-template.docx"
+    )
+    fs::file_copy(
+        path = fs::path_package("mnproject", "office", "powerpoint-template.pptx"),
+        new_path = "common/powerpoint-template.pptx"
+    )
 }
 
 # Git setup functions -------------------------------------------
@@ -77,6 +92,9 @@ include_readmes <- function(proj_name) {
 #'
 #' @return Adds Git and `.gitignore` file to the project.
 #' @export
+#' @importFrom gert git_init
+#' @importFrom cli cli_alert_info
+#' @importFrom rlang abort
 #' @seealso [setup_project()] for starting the project.
 #'
 setup_with_git <- function() {

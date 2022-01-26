@@ -8,6 +8,11 @@
 #'
 #' @return A created `.Rmd` file in the `doc/` folder.
 #'
+#' @importFrom rlang abort
+#' @importFrom fs path_package
+#' @importFrom rmarkdown draft
+#' @importFrom cli cli_alert_success
+#'
 #' @examples
 #' \dontrun{
 #' create_manuscript()
@@ -45,11 +50,6 @@ create_report <- function() {
     create_doc(type = "report_html")
     return(invisible())
 }
-
-#' @describeIn create_doc Creates a manuscript R Markdown document in
-#'   the `doc/` folder. Is the same as [create_report()].
-#' @export
-create_manuscript <- create_report
 
 #' @describeIn create_doc Creates a R Markdown document for making slides in the `doc/` folder.
 #' @export
