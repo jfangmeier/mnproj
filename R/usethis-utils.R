@@ -33,6 +33,7 @@ use_template <- function(template,
 }
 
 # Taken from usethis package and slightly modified
+#' @importFrom whisker whisker.render
 render_template <- function(template, data = list()) {
     template_path <- find_template(template)
     base::strsplit(whisker::whisker.render(read_utf8(template_path),
@@ -40,6 +41,7 @@ render_template <- function(template, data = list()) {
 }
 
 # Taken from usethis package and modified to this package.
+#' @importFrom fs path_package
 find_template <- function(template_name) {
     fs::path_package(package = "mnproject", "templates", template_name)
 }
@@ -59,6 +61,7 @@ add_rproj_file <- function(proj_name) {
 }
 
 # Taken from usethis:::uses_git
+#' @importFrom gert git_find
 has_git <- function(project_path = ".") {
     repo <- tryCatch(gert::git_find(project_path), error = function(e) NULL)
     !is.null(repo)
