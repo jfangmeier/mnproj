@@ -44,17 +44,29 @@ create_doc <- function(type = c("report_docx", "report_html", "slides_pptx", "sl
     invisible()
 }
 
-#' @describeIn create_doc Creates a report R Markdown document in the `doc/` folder.
+#' @describeIn create_doc Creates a R Markdown document for a html report in the `doc/` folder.
 #' @export
-create_report <- function() {
+create_report_html <- function() {
     create_doc(type = "report_html")
     return(invisible())
 }
 
-#' @describeIn create_doc Creates a R Markdown document for making slides in the `doc/` folder.
+#' @describeIn create_doc Creates a R Markdown document for making html slides in the `doc/` folder.
 #' @export
-create_slides <- function() {
+create_slides_html <- function() {
     create_doc(type = "slides_html")
+}
+#' @describeIn create_doc Creates a R Markdown document for a Word report in the `doc/` folder.
+#' @export
+create_report_html <- function() {
+    create_doc(type = "report_docx")
+    return(invisible())
+}
+
+#' @describeIn create_doc Creates a R Markdown document for making PowerPoint slides in the `doc/` folder.
+#' @export
+create_slides_html <- function() {
+    create_doc(type = "slides_pptx")
 }
 
 #' List project templates within \pkg{mnproject}.
@@ -66,4 +78,4 @@ create_slides <- function() {
 #' @examples
 #' template_list
 #'
-template_list <- c("report_html", "slides_html")
+template_list <- c("report_html", "slides_html", "report_docx", "slides_pptx")
