@@ -1,0 +1,4 @@
+name: Word document report with basic outline
+description: >
+ Template for creating a generic Word report with officedown,
+ empty except for standard headers and YAML reference to template.

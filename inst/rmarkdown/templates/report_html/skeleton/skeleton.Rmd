@@ -5,11 +5,18 @@ author:
     url: ""
     affiliation: ""
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output: 
+    distill::distill_article:
+        toc: true
+        toc_depth: 2
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r libraries, include=FALSE}
+library(mnbrand)
 ```
 
 Distill is a publication format for scientific and technical writing, native to the web.

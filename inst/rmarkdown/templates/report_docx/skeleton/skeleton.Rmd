@@ -1,0 +1,62 @@
+---
+output: 
+    officedown::rdocx_document:
+        reference_docx: "../common/word-template.docx"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    echo = FALSE,
+    warning = FALSE,
+    message = FALSE,
+    ft.align = 'left',
+    tab.topcaption = TRUE,
+    tab.cap.style = "Table Caption",
+    tab.cap.pre = "Table ",
+    tab.cap.sep = ": ",
+    fig.topcaption = TRUE,
+    fig.cap.style = "Image Caption",
+    fig.cap.pre = "Figure ",
+    fig.cap.sep = ": ")
+```
+
+```{r libraries, include=FALSE}
+library(mnbrand)
+library(flextable)
+library(officedown)
+```
+
+![](../common/mmb-logo.jpg)
+
+__Date:__ `r glue::glue("{lubridate::month(Sys.Date(), label = T, abbr = F)} {lubridate::day(Sys.Date())}, {lubridate::year(Sys.Date())}")`
+
+__Subject:__ Subject of Report
+
+__Background__
+
+__Results__
+
+Here is an example of a figure. In Word documents, you should caption a figure by using the fig.cap argument. Captioning improves accessibility and caption numbers are automatically updated.
+
+```{r plot, fig.cap="Relationship between horsepower and fuel economy"}
+library(ggplot2)
+
+mtcars %>%
+  ggplot(aes(x = mpg, y = hp, color = as.factor(carb))) +
+  geom_point(size = 4) +
+  scale_color_mn_d() +
+  theme_minimal()
+```
+
+Here is an example of a table. In Word documents, you should use the default theme and left align tables. You should also caption a table by using the set_caption function.
+
+```{r table}
+mtcars %>% 
+    head(n = 15) %>% 
+    flextable() %>% 
+    theme_ft_mn() %>% 
+    autofit() %>% 
+    set_caption("Select characteristics of cars in the mtcars dataset")
+```
+
+__Conclusion__
