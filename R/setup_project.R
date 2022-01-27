@@ -79,6 +79,10 @@ add_office_templates <- function(proj_name) {
         path = fs::path_package("mnproject", "office", "powerpoint-template.pptx"),
         new_path = "common/powerpoint-template.pptx"
     )
+    fs::file_copy(
+        path = fs::path_package("mnproject", "office", "mmb-logo.jpg"),
+        new_path = "common/mmb-logo.jpg"
+    )
 }
 
 # Git setup functions -------------------------------------------
