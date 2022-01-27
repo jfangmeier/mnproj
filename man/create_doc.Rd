@@ -2,17 +2,23 @@
 % Please edit documentation in R/create_doc.R
 \name{create_doc}
 \alias{create_doc}
-\alias{create_report}
-\alias{create_slides}
+\alias{create_report_html}
+\alias{create_slides_html}
+\alias{create_report_docx}
+\alias{create_slides_pptx}
 \title{Create a basic R Markdown document from a template.}
 \usage{
 create_doc(
   type = c("report_docx", "report_html", "slides_pptx", "slides_html")
 )
 
-create_report()
+create_report_html()
 
-create_slides()
+create_slides_html()
+
+create_report_docx()
+
+create_slides_pptx()
 }
 \arguments{
 \item{type}{The file type (e.g. report, slides).}
@@ -26,9 +32,13 @@ the `doc/` folder.
 }
 \section{Functions}{
 \itemize{
-\item \code{create_report}: Creates a report R Markdown document in the `doc/` folder.
+\item \code{create_report_html}: Creates a R Markdown document for a html report in the `doc/` folder.
 
-\item \code{create_slides}: Creates a R Markdown document for making slides in the `doc/` folder.
+\item \code{create_slides_html}: Creates a R Markdown document for making html slides in the `doc/` folder.
+
+\item \code{create_report_docx}: Creates a R Markdown document for a Word report in the `doc/` folder.
+
+\item \code{create_slides_pptx}: Creates a R Markdown document for making PowerPoint slides in the `doc/` folder.
 }}
 
 \examples{

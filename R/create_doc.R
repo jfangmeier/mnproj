@@ -58,14 +58,14 @@ create_slides_html <- function() {
 }
 #' @describeIn create_doc Creates a R Markdown document for a Word report in the `doc/` folder.
 #' @export
-create_report_html <- function() {
+create_report_docx <- function() {
     create_doc(type = "report_docx")
     return(invisible())
 }
 
 #' @describeIn create_doc Creates a R Markdown document for making PowerPoint slides in the `doc/` folder.
 #' @export
-create_slides_html <- function() {
+create_slides_pptx <- function() {
     create_doc(type = "slides_pptx")
 }
 
