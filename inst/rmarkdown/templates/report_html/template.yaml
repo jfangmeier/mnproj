@@ -1,4 +1,4 @@
-name: html report with basic outline (from distill)
+name: HTML report with basic outline (from distill)
 description: >
  Template for creating a generic html report, empty except
  for standard headers and the distill package metadata.
